@@ -1,11 +1,10 @@
 package com.server;
 
+import com.server.user.registration.RegistrationHandler;
 import com.sun.net.httpserver.HttpServer;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadPoolExecutor;
 
 public class HTTPServer {
 
@@ -28,11 +27,11 @@ public class HTTPServer {
 
         HttpServer server = HttpServer.create(new InetSocketAddress("localhost", 8000), 0);
 
-        ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) Executors.newFixedThreadPool(10);
 
 
 
-        server.createContext("/registration", new  RegistrationHandler());
+
+        server.createContext("/registration", new RegistrationHandler());
         server.createContext("/authentication", new AuthenticationHandler());
         server.createContext("/new_meet", new NewMeetHandler());
         server.createContext("/all_meet", new AllMeetHandler());
@@ -41,7 +40,7 @@ public class HTTPServer {
         server.createContext("/delete_member", new RegistrationHandler());
         /*server.createContext("/all_meet_and_member" , new RegistrationHandler());*/
 
-        server.setExecutor(threadPoolExecutor);
+        server.setExecutor(null);
         server.start();
         System.out.println(" Server started on port 8000");
 

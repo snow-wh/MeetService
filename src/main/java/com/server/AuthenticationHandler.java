@@ -1,8 +1,8 @@
 package com.server;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.reqest.RegistrationRequest;
-import com.response.RegistrationResponse;
+import com.server.user.registration.RegistrationRequest;
+import com.server.user.registration.RegistrationResponse;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;

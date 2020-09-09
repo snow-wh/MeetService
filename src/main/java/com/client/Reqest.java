@@ -1,11 +1,8 @@
 package com.client;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.mysql.cj.x.protobuf.MysqlxDatatypes;
-import com.packRead.ToPacket;
 
 import com.reqest.NewMeetRequest;
-import com.reqest.RegistrationRequest;
+import com.server.user.registration.RegistrationRequest;
 
 
 import java.io.*;

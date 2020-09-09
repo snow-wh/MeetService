@@ -1,4 +1,4 @@
-package com.reqest;
+package com.server.user.registration;
 
 public class RegistrationRequest {
 

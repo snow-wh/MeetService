@@ -1,7 +1,7 @@
 package com.server;
 
 import com.reqest.NewMeetRequest;
-import com.reqest.RegistrationRequest;
+import com.server.user.registration.RegistrationRequest;
 
 
 import java.sql.*;
@@ -21,7 +21,9 @@ public class DBConnection {
         private Connection connection;
         private PreparedStatement preparedStatement;
 
-        public DBConnection(){
+        private static DBConnection dbConnection;
+
+        private DBConnection(){
             try {
 
                 Driver driver = new com.mysql.cj.jdbc.Driver();
@@ -34,6 +36,12 @@ public class DBConnection {
 
         }
 
+        public static DBConnection getInstance(){
+            if (dbConnection==null){
+                dbConnection = new DBConnection();
+            }
+            return dbConnection;
+        }
 
         public void RegistrationMember(RegistrationRequest registrationRequest){
 
